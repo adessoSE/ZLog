@@ -1,0 +1,13 @@
+{
+  "tablestyle": {
+    "time": {
+      "allowWrap": false
+    },
+    "component": {
+      "allowWrap": false
+    },
+    "fullMessage": {
+      "allowWrap": true
+    }    
+  }
+}

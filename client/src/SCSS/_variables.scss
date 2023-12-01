@@ -1,0 +1,17 @@
+//
+// Enter your custom variables here.
+//
+// eg:
+$primary: #3888c9;
+$light: #efefef;
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$font-weight-light: 200;
+$font-weight-normal: 300;
+$font-weight-bold: 500;
+$font-size-base: .8rem;
+//
+// Please refer to './bootstrap/_variables.scss' for default variables and values.
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";

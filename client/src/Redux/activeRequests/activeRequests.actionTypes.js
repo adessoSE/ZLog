@@ -1,0 +1,4 @@
+export const REQUEST_START = 'REQUEST_START';
+export const REQUEST_END = 'REQUEST_END';
+export const REQUEST_CANCEL = 'REQUEST_CANCEL';
+export const REQUEST_CANCEL_ALL = 'REQUEST_CANCEL_ALL';

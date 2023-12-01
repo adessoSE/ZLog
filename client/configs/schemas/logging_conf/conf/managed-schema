@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solr managed schema - automatically generated - DO NOT EDIT -->
+<schema name="example" version="1.6">
+  <uniqueKey>id</uniqueKey>
+  <fieldType name="binary" class="solr.BinaryField"/>
+  <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+  <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" docValues="true" multiValued="true"/>
+  <fieldType name="managed_en" class="solr.TextField" positionIncrementGap="100">
+    <analyzer type="index">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.ManagedStopFilterFactory" managed="english"/>
+      <filter class="solr.ManagedSynonymGraphFilterFactory" managed="english"/>
+      <filter class="solr.FlattenGraphFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.ManagedStopFilterFactory" managed="english"/>
+      <filter class="solr.ManagedSynonymGraphFilterFactory" managed="english"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+  <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+  <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+  <fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+  <fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
+  <fieldType name="pfloats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
+  <fieldType name="pint" class="solr.IntPointField" docValues="true"/>
+  <fieldType name="pints" class="solr.IntPointField" docValues="true" multiValued="true"/>
+  <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
+  <fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true"/>
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>
+  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" docValues="true" multiValued="true"/>
+  <fieldType name="text_de" class="solr.TextField" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.StopFilterFactory" format="snowball" words="lang/stopwords_de.txt" ignoreCase="true"/>
+      <filter class="solr.GermanNormalizationFilterFactory"/>
+      <filter class="solr.GermanLightStemFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="text_en" class="solr.TextField" positionIncrementGap="100">
+    <analyzer type="index">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.StopFilterFactory" words="lang/stopwords_en.txt" ignoreCase="true"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.EnglishPossessiveFilterFactory"/>
+      <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+      <filter class="solr.PorterStemFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.SynonymGraphFilterFactory" expand="true" ignoreCase="true" synonyms="synonyms.txt"/>
+      <filter class="solr.StopFilterFactory" words="lang/stopwords_en.txt" ignoreCase="true"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.EnglishPossessiveFilterFactory"/>
+      <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+      <filter class="solr.PorterStemFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="text_gen_sort" class="solr.SortableTextField" positionIncrementGap="100" multiValued="true">
+    <analyzer type="index">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+      <filter class="solr.SynonymGraphFilterFactory" expand="true" ignoreCase="true" synonyms="synonyms.txt"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
+    <analyzer type="index">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+      <filter class="solr.SynonymGraphFilterFactory" expand="true" ignoreCase="true" synonyms="synonyms.txt"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="text_general_rev" class="solr.TextField" positionIncrementGap="100">
+    <analyzer type="index">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.ReversedWildcardFilterFactory" maxPosQuestion="2" maxFractionAsterisk="0.33" maxPosAsterisk="3" withOriginal="true"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.SynonymGraphFilterFactory" expand="true" ignoreCase="true" synonyms="synonyms.txt"/>
+      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="text_ws" class="solr.TextField" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+    </analyzer>
+  </fieldType>
+  <field name="_root_" type="string" docValues="false" indexed="true" stored="false"/>
+  <field name="_version_" type="plong" indexed="false" stored="false"/>
+  <field name="activemq.broker" type="strings"/>
+  <field name="application" type="strings"/>
+  <field name="className" type="strings"/>
+  <field name="component" type="strings"/>
+  <field name="counterId" type="plongs"/>
+  <field name="exceptionClass" type="strings"/>
+  <field name="exceptionMessage" type="strings"/>
+  <field name="exceptionSourceLine" type="strings"/>
+  <field name="exceptionSourceMethod" type="strings"/>
+  <field name="exceptionSourceModule" type="strings"/>
+  <field name="exceptionType" type="strings"/>
+  <field name="exceptionTypeShort" type="strings"/>
+  <field name="filename" type="strings"/>
+  <field name="fullMessage" type="strings"/>
+  <field name="fulltext" type="text_de" multiValued="true" indexed="true" required="false" stored="false"/>
+  <field name="hostName" type="strings"/>
+  <field name="http_browser" type="strings"/>
+  <field name="http_os" type="strings"/>
+  <field name="http_version" type="strings"/>
+  <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="level" type="strings"/>
+  <field name="logFileName" type="strings"/>
+  <field name="logger" type="strings"/>
+  <field name="loggerLong" type="strings"/>
+  <field name="marco_area_technical_name" type="strings"/>
+  <field name="marco_areaid" type="strings"/>
+  <field name="marco_batchid" type="strings"/>
+  <field name="marco_changeid" type="strings"/>
+  <field name="marco_double_delivery_id" type="strings"/>
+  <field name="marco_enum_entry_id" type="strings"/>
+  <field name="marco_field_technical_name" type="strings"/>
+  <field name="marco_functioncode" type="strings"/>
+  <field name="marco_instrument_identifier_id" type="strings"/>
+  <field name="marco_isin" type="strings"/>
+  <field name="marco_mage_view_entry_id" type="strings"/>
+  <field name="marco_mage_view_folder_id" type="strings"/>
+  <field name="marco_mageid" type="strings"/>
+  <field name="marco_mandant_id" type="strings"/>
+  <field name="marco_mapping_id" type="strings"/>
+  <field name="marco_method_technical_name" type="strings"/>
+  <field name="marco_protocol_id" type="strings"/>
+  <field name="marco_role" type="strings"/>
+  <field name="marco_roleid" type="strings"/>
+  <field name="marco_rule_id" type="strings"/>
+  <field name="marco_rule_name" type="strings"/>
+  <field name="marco_rule_version_id" type="strings"/>
+  <field name="marco_ruleset_id" type="strings"/>
+  <field name="marco_ruleset_mapping_entry_id" type="strings"/>
+  <field name="marco_ruleset_mapping_entry_version_id" type="strings"/>
+  <field name="marco_ruleset_name" type="strings"/>
+  <field name="marco_ruleset_version_id" type="strings"/>
+  <field name="marco_user" type="booleans"/>
+  <field name="marcoport" type="strings"/>
+  <field name="message" type="text_de"/>
+  <field name="messageShort" type="strings"/>
+  <field name="port" type="plongs"/>
+  <field name="sourceClass" type="strings"/>
+  <field name="system" type="strings"/>
+  <field name="test-value" type="strings"/>
+  <field name="threadId" type="plongs"/>
+  <field name="threadName" type="strings"/>
+  <field name="time" type="pdate"/>
+  <copyField source="*" dest="fulltext"/>
+</schema>

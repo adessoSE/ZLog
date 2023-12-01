@@ -1,0 +1,241 @@
+{
+  "collection": "logging",
+  "port": 6006,
+  "solrUrl": "http://localhost:{PORT}/solr/",
+  "solrFieldsUrl": "{URL}{COLLECTION}/schema/fields/",
+  "parseFolderDepth": 1,
+  "addFrequency": 1000,
+  "addMaxDocuments": 1000,
+  "injectionTimeout": 1000,
+  "keys": {
+    "keyId": "id",
+    "keyLevel": "level",
+    "keyTime": "time",
+    "keyThreadId": "threadId",
+    "keyMessage": "message",
+    "keySourceClass": "sourceClass",
+    "keyExceptionType": "exceptionType",
+    "keyExceptionMessage": "exceptionMessage",
+    "keyExceptionClass": "exceptionClass",
+    "keyExceptionSourceMethod": "exceptionSourceMethod",
+    "keyExceptionSourceLine": "exceptionSourceLine",
+    "keyExceptionSourceModule": "exceptionSourceModule",
+    "keyExceptionTypeShort": "exceptionTypeShort",
+    "keyClassName": "className",
+    "keyHostName": "hostName",
+    "keyPort": "port",
+    "keyFullMessage": "fullMessage",
+    "keyLogFileName": "logFileName",
+    "keyThreadName": "threadName",
+    "keyMessageShort": "messageShort"
+  },
+  "paths": [
+    {
+      "path": "../sprint-marco/log/marco-bp-auth.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-auth"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-ccp.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-ccp"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-databroker.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-databroker"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-enums.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-enums"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-four-eye-accept.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-four-eye-accept.log"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-import-csv-deka-bsp.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-import-csv-deka-bsp"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-import-csv.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-import-csv"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-import-csv-spk-bsp.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-import-csv-spk-bsp"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-import-csv-test2-bsp.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-import-csv-test2-bsp"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-import-csv-test-bsp.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-import-csv-test-bsp"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-interfaces.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-interfaces"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-mage.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-mage"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-monitor.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-monitor"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-rulemanagement.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-rulemanagement"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-tasks.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-tasks"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-vp-gd.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-vp-gd"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-vp-logic.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-vp-logic"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-vp-madaid.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-vp-madaid"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-vp-plausi.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-vp-plausi"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-vp-rulemapping.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-vp-rulemapping"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-vp-sd.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-vp-sd"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-vp-transform.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-vp-transform"
+        }
+      ]
+    },
+	{
+      "path": "../sprint-marco/log/marco-bp-webserver.log",
+      "additionalFields": [
+        {
+          "key": "component",
+          "value": "marco-bp-webserver"
+        }
+      ]
+    }
+  ]
+}

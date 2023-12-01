@@ -1,0 +1,78 @@
+@import "variables";
+
+.modal-header-settings {
+    border-bottom: 0 none;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.modal-body-settings {
+    overflow-y: auto;
+}
+
+.modal-settings {
+    height: 600px;
+}
+
+.list-value {
+    width: 100%;
+    float: none;
+    display: inline-block;
+    position: inherit;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.settings-list-value {
+    width: 100%;
+    float: none;
+    display: inline-block;
+    position: inherit;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.list-group-item + .list-group-item {
+    border-top-width: 1px;
+}
+
+.acol {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-list {
+    height: 375px;
+}
+
+#settingsList {
+    height: 300px;
+    overflow-y: auto;
+    
+}
+.nav-tab {
+    cursor: pointer;
+}
+
+.comment-title {
+    margin: 0;
+    font-weight: bold;
+    
+}
+
+.comment-description {
+  margin: 0;
+  // margin-left: 5px;
+}
+
+

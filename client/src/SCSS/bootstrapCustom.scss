@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "variables";
+
+@import "bootstrap/bootstrap";
+
+
+.list-group-item.list-value:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.highlighted,
+.list-value.highlighted,
+.list-group-item.list-value.highlighted{
+  background-color: $primary;
+  color: white
+}
+
+.btn-xs {
+  padding: 0.15rem 0.35rem
+}
+.btn-micro {
+  padding: 0 0.3rem;
+  font-size: 0.75rem
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#root,
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.layout-header {
+
+}
+.layout-body {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+.layout-body-sidebar {
+  min-width: 300px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border-right: 1px solid $border-color;
+}
+
+.layout-body-content {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+/**
+ custom helpers
+ */
+
+.bg-gray-100 {
+  background-color: $gray-100 !important;
+}
+
+/**
+  Overlay
+ */
+
+.unwrapping-overlay-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%
+}
+
+/**
+ Result list
+ */
+
+.result-list-container {
+  flex: 1 1 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+

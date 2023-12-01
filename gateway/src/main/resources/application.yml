@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: zloggateway
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 178021ab477260c4f346
+            clientSecret: cdcf88d2f85edc3dbb9bba4e142cf986662201fc
+            scope: read:user, user:email
+          google:
+            clientId: ${GOOGLE_CLIENT_ID}
+            clientSecret: ${GOOGLE_CLIENT_SECRET}
+            scope: profile, email

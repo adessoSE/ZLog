@@ -1,0 +1,114 @@
+version: '3'
+
+services:
+  zlog:
+    container_name: zlog
+    build:
+      context: docker
+    ports:
+      - 8090:8090
+    environment:
+      - elastic.baseUrl=elasticsearch
+    networks:
+        - elks
+
+  zloggui:
+    container_name: zloggui
+    build:
+      context: client
+    ports:
+      - 3000:3000
+    networks:
+      - elks
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.4
+    ports:
+      - 9200:9200
+    environment:
+      discovery.type: 'single-node'
+      xpack.security.enabled: 'false'
+      # ELASTIC_PASSWORD: '<your_password>'
+    networks:
+      - elks
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.13.4
+    environment:
+      SERVER_NAME: kibana
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+    ports:
+      - 5601:5601
+    networks:
+      - elks
+
+  logstash:
+    container_name: logstash
+    build:
+      context: FileConfiguration/logstash
+    volumes:
+      - ./FileConfiguration/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
+      - ./FileConfiguration/logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
+    ports:
+      - 5044:5044
+      - 50000:50000/tcp
+      - 50000:50000/udp
+      - 9600:9600
+    networks:
+      - elks
+
+
+  solr:
+    #image: docker.elastic.co/solr/solr:8.4.1
+    image: solr:8.4.1
+    container_name: solr
+    ports:
+      - 8983:8983
+      - 9983:9983
+    environment:
+      - solr.baseUrl=solr
+    networks:
+      - elks
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr
+      - start
+      - -c
+      - -f
+
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.13.4
+    # Run as 'root' instead of 'filebeat' (uid 1000) to allow reading
+    # 'docker.sock' and the host's filesystem.
+    user: root
+    command:
+      # Log to stderr.
+      - -e
+      # Disable config file permissions checks. Allows mounting
+      # 'config/filebeat.yml' even if it's not owned by root.
+      # see: https://www.elastic.co/guide/en/beats/libbeat/current/config-file-permissions.html
+      - --strict.perms=false
+    volumes:
+      - ./FileConfiguration/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro,Z
+      - type: bind
+        source: /var/lib/docker/containers
+        target: /var/lib/docker/containers
+        read_only: true
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+        read_only: true
+    environment:
+      FILEBEAT_INTERNAL_PASSWORD: "filebeat_test"
+      BEATS_SYSTEM_PASSWORD: "filebeat_system_test"
+    networks:
+      - elks
+    depends_on:
+      - elasticsearch
+
+networks:
+  elks:
+    driver: bridge

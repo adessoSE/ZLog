@@ -1,0 +1,1 @@
+java -jar target/logging-webserver-0.0.1-SNAPSHOT.jar --server.port=8090  --zuul.routes.solrservice.url=http://solr1:8983/solr/ --spring.resources.static-locations=file:C:\Users\doci\Desktop\looging_project\gitlab_ui\solr-logging-client\build

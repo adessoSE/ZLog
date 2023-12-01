@@ -1,0 +1,140 @@
+@import 'variables';
+
+.table-wrapper {
+  overflow: hidden;
+  height: 600px
+}
+
+.result-list-table {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+}
+
+.thead {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.thead .tr {
+  overflow-y: scroll; // to match size with column in table body
+}
+
+.tbody {
+  overflow: hidden;
+  flex: auto;
+}
+
+
+.th {
+  padding: 6px 12px;
+  background-color: $light;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.tbody .tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+
+.td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 6px;
+}
+
+.resizer {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.125);
+  width: 6px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(50%);
+  z-index: 1;
+
+  touch-action:none;
+
+
+}
+.th:last-child > .resizer {
+  display: none;
+}
+
+.resizer.isResizing {
+  background: rgba(0, 0, 0, 0.3)
+}
+
+
+.result-list-wrapper .tr {
+  transition: background-color 150ms ease-out;
+}
+.result-list-wrapper .tr:hover {
+  transition: background-color 40ms ease-out;
+}
+
+.result-list-wrapper .tr.INFO {
+  &:before {
+    content: "";
+    width: 6px;
+    height: 101%;
+    background-color: $info;
+  }
+  &:hover {
+    background-color: lighten($info, 50%);
+  }
+}
+
+.result-list-wrapper .tr.WARN {
+  &:before {
+    content: "";
+    width: 6px;
+    height: 101%;
+    background-color: $warning;
+  }
+
+  &:hover {
+    background-color: lighten($warning, 40%);
+  }
+}
+
+.result-list-wrapper .tr.ERROR {
+  &:before {
+    content: "";
+    width: 6px;
+    height: 101%;
+    background-color: $danger;
+  }
+  &:hover {
+    background-color: lighten($danger, 40%);
+  }
+}
+
+.result-list-wrapper .tr.DEBUG {
+  &:before {
+    content: "";
+    width: 6px;
+    height: 101%;
+    background-color: $success;
+  }
+  &:hover {
+    background-color: lighten($success, 40%);
+  }
+}
+
+.result-list-wrapper .tr.active,
+.result-list-wrapper .tr.active:hover{
+  background-color: darkblue;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.825);
+}
+
+.result-list-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
