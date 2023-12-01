@@ -30,6 +30,9 @@ The latest release is using the following stack:
    * [How to configure Logstash](#how-to-configure-logstash)
    * [How to configure Filebeat](#how-to-configure-filebeat)
    * [How to configure ZLog](#how-to-configure-zlog)   
+1. [File import with Logstash and Filebeat](#file-import-with-logstash-and-filebeat)
+   * [Filebeat](#filebeat-)
+   * [Logstash](#logstash-)
 1. [Extensibility](#extensibility)
    * [How to add plugins](#how-to-add-plugins)
 
